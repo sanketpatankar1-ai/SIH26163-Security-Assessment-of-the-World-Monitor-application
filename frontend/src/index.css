@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --surface: #f8fafc;
+    --surface-raised: #ffffff;
+    --surface-soft: #f1f5f9;
+    --ink: #172033;
+    --muted-ink: #64748b;
+    --line: #e2e8f0;
+    --clay-shadow: 8px 10px 24px rgb(28 42 62 / 7%), -5px -5px 14px rgb(255 255 255 / 92%), inset 1px 1px 0 rgb(255 255 255 / 90%);
+    --clay-shadow-sm: 4px 5px 14px rgb(28 42 62 / 6%), -3px -3px 9px rgb(255 255 255 / 92%), inset 1px 1px 0 rgb(255 255 255 / 85%);
+    --clay-shadow-pressed: inset 3px 4px 9px rgb(28 42 62 / 9%), inset -2px -2px 6px rgb(255 255 255 / 92%);
+  }
+
+  html {
+    min-width: 320px;
+    background: #f2f5f9;
+  }
+
+  body {
+    @apply text-slate-900;
+    min-height: 100vh;
+    color: var(--ink);
+    background: #f2f5f9;
+  }
+
+  button,
+  a,
+  input,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible {
+    outline: 3px solid rgb(59 130 246 / 34%);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    color: #17335e;
+    background: #dbeafe;
+  }
+}
+
+/* Warm, quiet canvas and raised clay surfaces. */
+.min-h-screen.flex.flex-col.bg-slate-50 {
+  background:
+    radial-gradient(ellipse at 12% 0%, rgb(255 255 255 / 75%), transparent 42%),
+    #f2f5f9;
+}
+
+header.sticky {
+  background: rgb(248 250 252 / 94%);
+  border-color: #e5eaf1;
+  box-shadow: 0 5px 18px rgb(30 45 66 / 5%), inset 0 -1px 0 rgb(255 255 255 / 90%);
+  backdrop-filter: blur(12px);
+}
+
+header.sticky > div {
+  min-height: 4.25rem;
+}
+
+header.sticky nav button {
+  min-height: 2.5rem;
+  border-radius: 0.75rem;
+  transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+header.sticky nav button:hover {
+  transform: translateY(-1px);
+}
+
+header.sticky nav button[class*="bg-slate-100"] {
+  background: #eaf0f8;
+  box-shadow: var(--clay-shadow-sm);
+}
+
+.bg-white.rounded-xl.border,
+.bg-white.rounded-2xl.border {
+  background: linear-gradient(145deg, #ffffff, #f7f9fc);
+  border-color: #e5eaf1;
+  box-shadow: var(--clay-shadow);
+}
+
+.bg-white.rounded-xl.border:hover,
+.bg-white.rounded-2xl.border:hover {
+  border-color: #d9e2ed;
+}
+
+.bg-white.rounded-xl.shadow-sm,
+.bg-white.rounded-2xl.shadow-sm {
+  background: linear-gradient(145deg, #ffffff, #f7f9fc);
+  box-shadow: var(--clay-shadow);
+}
+
+.bg-white.rounded-xl.border > .border-b,
+.bg-white.rounded-2xl.border > .border-b {
+  border-color: #e7ecf2;
+}
+
+/* Gentle raised surfaces for severity tiles, filter groups, and detail panels. */
+.rounded-xl.border,
+.rounded-lg.border {
+  box-shadow: var(--clay-shadow-sm);
+}
+
+.bg-slate-50.rounded-lg,
+.bg-slate-50.rounded-xl,
+.bg-slate-50\/50.rounded-lg,
+.bg-slate-50\/50.rounded-xl {
+  border-color: #e5eaf1;
+}
+
+/* Tactile primary, secondary, and icon actions. */
+button.bg-blue-600,
+a.bg-blue-600 {
+  border: 1px solid #2858b9;
+  border-radius: 0.8rem;
+  background: linear-gradient(155deg, #3974df, #285fc6);
+  box-shadow: 0 5px 12px rgb(40 91 183 / 20%), inset 1px 1px 0 rgb(255 255 255 / 24%), inset 0 -2px 0 rgb(25 69 151 / 22%);
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+button.bg-blue-600:hover,
+a.bg-blue-600:hover {
+  background: linear-gradient(155deg, #437de7, #2c65ce);
+  box-shadow: 0 8px 16px rgb(40 91 183 / 23%), inset 1px 1px 0 rgb(255 255 255 / 25%);
+  transform: translateY(-1px);
+}
+
+button.bg-blue-600:active,
+a.bg-blue-600:active {
+  box-shadow: var(--clay-shadow-pressed);
+  transform: translateY(1px) scale(0.99);
+}
+
+button[class*="border-slate-200"],
+button[class*="border-slate-300"],
+a[class*="border-slate-300"] {
+  box-shadow: var(--clay-shadow-sm);
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+button[class*="border-slate-200"]:hover,
+button[class*="border-slate-300"]:hover,
+a[class*="border-slate-300"]:hover {
+  transform: translateY(-1px);
+}
+
+button[class*="border-slate-200"]:active,
+button[class*="border-slate-300"]:active,
+a[class*="border-slate-300"]:active {
+  box-shadow: var(--clay-shadow-pressed);
+  transform: translateY(1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none;
+}
+
+/* Inset fields with a clear, accessible focus treatment. */
+input:not([type="checkbox"]),
+select {
+  min-height: 2.5rem;
+  color: #273449;
+  background-color: #f8fafc;
+  border-color: #d9e2ed;
+  border-radius: 0.7rem;
+  box-shadow: inset 2px 3px 6px rgb(33 51 74 / 6%), inset -1px -1px 3px rgb(255 255 255 / 95%);
+  transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+
+input:not([type="checkbox"]):focus,
+select:focus {
+  background-color: #ffffff;
+  border-color: #7aa4e8;
+  box-shadow: inset 1px 2px 4px rgb(33 51 74 / 4%), 0 0 0 3px rgb(59 130 246 / 13%);
+}
+
+input[type="checkbox"] {
+  accent-color: #356dce;
+}
+
+/* Calm and readable tables across the dashboard and methodology views. */
+table {
+  border-spacing: 0;
+}
+
+table thead tr {
+  color: #526178;
+  background-color: #f1f5f9;
+}
+
+table th {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  letter-spacing: 0.06em;
+}
+
+table tbody tr {
+  transition: background-color 140ms ease;
+}
+
+table tbody tr:hover {
+  background-color: #f1f6fd;
+}
+
+/* Reusable pill surfaces and responsive modal treatment. */
+span[class*="rounded-full"][class*="border"],
+span[class*="rounded"][class*="border"][class*="text-"] {
+  box-shadow: inset 1px 1px 0 rgb(255 255 255 / 78%);
+}
+
+[class*="fixed"][class*="inset-0"][class*="z-50"] > .bg-white {
+  border-color: #e1e8f0;
+  box-shadow: 14px 18px 44px rgb(20 32 50 / 20%), -6px -6px 18px rgb(255 255 255 / 80%), inset 1px 1px 0 rgb(255 255 255 / 95%);
+}
+
+footer {
+  background: #f8fafc;
+  border-color: #e5eaf1;
+}
+
+/* Custom scrollbars for clean UI */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #e9eef4;
+}
+::-webkit-scrollbar-thumb {
+  background: #bdc9d8;
+  border: 2px solid #e9eef4;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #95a6bb;
+}
+
+@media (max-width: 640px) {
+  .bg-white.rounded-xl.border,
+  .bg-white.rounded-2xl.border,
+  .bg-white.rounded-xl.shadow-sm,
+  .bg-white.rounded-2xl.shadow-sm {
+    box-shadow: 5px 7px 17px rgb(28 42 62 / 6%), -3px -3px 9px rgb(255 255 255 / 90%), inset 1px 1px 0 rgb(255 255 255 / 90%);
+  }
+
+  table th,
+  table td {
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
